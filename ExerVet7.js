@@ -1,22 +1,24 @@
 //Dados dois vetores de tamanho N.
-//  faça uma função que diga se os mesmos possuam conteúdo igual.
+// faça uma função que diga se os mesmos possuam conteúdo igual.
+const prompt = require('prompt-sync')();
+let n = parseInt(prompt("Digite o tamanho dos vetores: "));
+let vetor1 = [];
+let vetor2 = [];
+let iguais = true;
 
-function vetoresIguais(vetor1, vetor2) {
-  // Primeiro: verificar se os tamanhos dos vetores são iguais
-  if (vetor1.length !== vetor2.length) {
-    return false; // Se forem diferentes, já sabemos que não são iguais
-  }
-
-  // Agora, vamos comparar os valores, um por um
-  for (let i = 0; i < vetor1.length; i++) {
-    if (vetor1[i] !== vetor2[i]) {
-      return false; // Se acharmos algum valor diferente, retornamos false
-    }
-  }
-
-  // Se passou por todos os testes acima, então os vetores são iguais
-  return true;
+for (let i = 0; i < n; i++) {
+    vetor1[i] = parseInt(prompt(`Digite o ${i + 1}º valor do vetor 1: `));
 }
+for (let i = 0; i < n; i++) {
+    vetor2[i] = parseInt(prompt(`Digite o ${i + 1}º valor do vetor 2: `));
 
+    if (vetor1[i] !== vetor2[i]) {
+        iguais = false;
+    }
 
-          
+}
+if (iguais) {
+    console.log("Os vetores são iguais.");
+} else {
+    console.log("Os vetores são diferentes.");
+}
